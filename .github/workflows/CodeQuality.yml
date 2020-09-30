@@ -1,0 +1,15 @@
+name: Code Quality
+on: push
+jobs:
+  PS-ScriptAnalayzer:
+    name: PS-ScriptAnalayzer
+    runs-on:  Ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: PS-ScriptAnalyzer
+      uses: docker://devblackops/github-action-psscriptanalyzer:2.3.0
+      with: 
+        sendComment: false
+        failOnErrors: true
+        failOnWarnings: true
+        failOnInfos: true
